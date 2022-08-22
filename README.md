@@ -9,12 +9,16 @@ The purpose of this analysis is to explore whether there is a connection between
 
 ## Questions to Answer:
 
-*
-
-*
-
-*
-
+    1.) Which organizations are responsible for the most deaths and injuries from 1922-2022?
+    2.) Which states/regions of a country had the most terrorist attacks from 1922-2022?
+    3.) What is the demographic breakdown (gender percentage, percentage of each age range in a population, and percentage of urban people within a population) of each state where terrorism was committed?
+    4.) What are the most common categories of terrorism within each region?
+    5.) On what particular decade where the most terroist acts committed across the world?
+    6.) What is the Economic Credit Rating for the regions where terrorism was inflicted?
+    7.) What are the military expenditures where terrorism took place?
+    8.) What are the specific Military organizations/treaties (check "Military and Security: Military - note" column) for each contry where terrorism took place?
+    9.) What is the GDP breakdown for each country?
+    
 ## Machine Learning:
 
 
