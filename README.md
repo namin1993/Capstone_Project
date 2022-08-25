@@ -1,6 +1,6 @@
-# Capstone project – Github Repo Management
+# Capstone project â€“ Github Repo Management
 
-## Week 1 
+## Segment 1
 
 
 * Review and approve pull requests.
