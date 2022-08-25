@@ -5,7 +5,7 @@
 The purpose of this analysis is to explore whether there is a connection between country demographics and terrorism.  The completed analysis will be located on GitHub Pages and will contain interactive visualizations of the data including a map and web-scraped articles.
 
 
-# Week 1
+# Segment 1
 
 ## Questions to Answer:
 
@@ -45,7 +45,7 @@ The dataframes will be cleaned using Pandas.  Once cleaned, the data will be vis
 During the next phase of this project we will scrape a news site containing recent articles regarding terrorism around the world.  Splinter and BeautifulSoup will be used to scrape the website and the results will be inserted into a dedicated Mongo collection for the scraped material.
 
 
-## Week 1 Summary:
+## Segment 1 Summary:
 
 
 
