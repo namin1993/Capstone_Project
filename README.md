@@ -49,7 +49,7 @@ The dataframes will be cleaned using Pandas.  Once cleaned, the data will be vis
 During the next phase of this project we will scrape a news site containing recent articles regarding terrorism around the world.  Splinter and BeautifulSoup will be used to scrape the website and the results will be inserted into a dedicated Mongo collection for the scraped material.
 
 
-## Week 1 Summary:
+## Segment 1 Summary:
 Our team regularly updated each other on Slack and outlined talking points prior to our Zoom meeting. Any questions would be addressed on our Zoom meeting.
 
 8/16 - 8/21
