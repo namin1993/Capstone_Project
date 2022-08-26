@@ -6,7 +6,7 @@ The purpose of this analysis is to explore whether there is a connection between
 
 The reason this topic was selected was because it would enable us to work with large datasets full of information about many countries. Using these large datasets pertaining to country information and terrorism would allow us to use many techniques we learned throughout the course to transform the data as well as the flexibility to answer as many questions as possible. We thought that the topic itself was interesting to look into and we wanted to make sure that the datasets would not be too limiting in case there was unexpected technical difficulty in answering certain questions listed in the next section.
 
-# Segment 1
+# Segment 1:
 
 ## Questions to Answer:
 
@@ -29,24 +29,22 @@ The ml_modeling_rough_draft.ipynb visually shows the success in connecting to th
 
 ## Database Management & Visualizations:
 
-Due to the unstructured nature of our data, we determined that a non-relational database, such as Mongo DB, to house our data.  Mongo does not require a set schema which provides flexibility and its cloud based access is ideal for a distributed team.
+We determined that a non-relational database, such as Mongo DB, is the best solution to house our data due to its unstructured nature.  Mongo does not require a set schema which provides flexibility and its cloud based access is ideal for a distributed team.  Mongo works well with Jupyter Notebooks, allowing for easy upload, cleaning, and transformation of the data.
 
-Another benefit of Mongo is its ability to work with Jupyter Notebooks.  This allows for the data to be cleaned and transformed in a notebook and easily inserted into Mongo.
-
+An example of the upload code is pictured below.
 ![upload to mongo](https://github.com/namin1993/Capstone_Project/blob/lauren/lauren%20resources%20week%201/upload%20to%20mongo.png)
 
-* Structure: Data Frames
-Our primary data is drawn from 2 Kaggle datasets.  Each dataset has been uploaded into Mongo as a separate collection.  
+Our primary data is drawn from 2 Kaggle datasets.  The CIA dataset contains around 1100 columns and 250 rows.  By contrast, the Terror dataset comprises 12 columns and over 27000 rows. Each dataset has been uploaded into Mongo as a separate collection.  
 
 ![collection picture](https://github.com/namin1993/Capstone_Project/blob/lauren/lauren%20resources%20week%201/raw%20data%20uploaded%20to%20mongo.png)
 
 A document example from each collection is pictured below.  
 ![combined doc picture](https://github.com/namin1993/Capstone_Project/blob/lauren/lauren%20resources%20week%201/combined%20doc%20example.png)
 
-The dataframes will be cleaned using Pandas.  Once cleaned, the data will be visually in a map using Mapbox and Leaflet.  Additional visualizations will be accomplished using Plotly.
+Each collection holds a range of datatypes, including objects, strings, integrers, and floats.  The dataframes will be cleaned using Pandas.  Once cleaned, the data will be visualized in a map using Mapbox and Leaflet.  Additional visualizations will be accomplished using Plotly.
 
-* Structure: Web Scraping
-During the next phase of this project we will scrape a news site containing recent articles regarding terrorism around the world.  Splinter and BeautifulSoup will be used to scrape the website and the results will be inserted into a dedicated Mongo collection for the scraped material.
+## Web Scraping:
+During the next phase of this project we will scrape a news site containing articles regarding terrorism around the world.  The results will be inserted into a dedicated Mongo collection for the scraped material and our final dashboard will pull the articles from Mongo.
 
 
 ## Segment 1 Summary:
