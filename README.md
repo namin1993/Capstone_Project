@@ -3,7 +3,7 @@
 
 ## Database Management
 
-# [Terror Data Frame Cleaning](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/cleaning_terror_df.ipynb): 
+### [Cleaning Terror Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/cleaning_terror_df.ipynb): 
 
 * Prior to loading the CSV into Jupyter Notebook, I examined the CSV.  Once loaded into the notebook I used ".head()" to examine the structure and ".dtypes" to understand the type of data.
 ![head and dyptes](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/head%20and%20dytpes.png)
@@ -22,3 +22,11 @@
 
 * Finally, I re-ordered the columns into a data frame and upserted it as new collection in Mongo DB.
 ![upsert to mongo](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/upsert%20to%20mongo.png)
+
+### Cleaning CIA Data Frame:
+
+* Prior to conducting cleaning, I reviewed the original CSV and created an exploratory file in Jupyter notebook.  The original dataset has over 1100 columns.  Since many of those columns contain multiple information, I converted the datatype to string upon loading the dataframe.  This strategy allowed for slicing of the data.
+
+* During this process, I had two notebooks opened.  One notebook showed the original column contents and the other notebook was used to edit the dataframe.
+
+* This process resulted in a data frame that contained semi-cleaned data of the informaton our group is targeting.  
