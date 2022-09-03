@@ -30,7 +30,7 @@
 
 ### [Cleaning CIA Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/cia_clean_v3.ipynb):
 
-* Many of the examination steps noted above were repeated here. However, because this data set is considerably larger than the previous data set, I searched for columns likely to provide data to answer the questions posed in Segment 1.  This process reduced over 1100 columns to about 50 columns.
+* Many of the examination steps noted above were repeated [here](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb). However, because this data set is considerably larger than the previous data set, I searched for columns likely to provide data to answer the questions posed in Segment 1.  This process reduced over 1100 columns to about 50 columns.
 
 * Since I knew the pertinent columns,  I only loaded those columns into the notebook.
 ![column example]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/cia%20column%20names.png)
@@ -38,7 +38,7 @@
 * As a strategy, I loaded the data as “string” data type because I anticipated using slicing as a method to retain necessary data and remove unwanted data.
 ![string]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/loaded%20as%20string.png)
 
-* Next, I created an [exploartory notebook](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb) to assist in determining how to slice the strings.
+* Next, I worked in the [exploartory notebook](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb) to determine how to slice the strings.
 
 * In order to balance multiple priorities, I focused on creating a “[rough draft]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/intermed_clean_cia.csv)” data frame so my groupmates could access and begin to work with the data.
 
