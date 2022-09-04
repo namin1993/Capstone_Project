@@ -11,7 +11,7 @@
 * Using a loop to identify null values is also a helpful tactic to obtain information on the dataset.
 ![find nulls](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/find%20nulls.png)
 
-* I conducted various transformations on the data set including:
+* Various transformations were conducted including:
 
       * dropping null values
 			
@@ -43,6 +43,21 @@
 * In order to balance multiple priorities, I focused on creating a “[rough draft](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/first_pass_clean_cia.csv)” data frame so my groupmates could access and begin to work with the data.
 
 * The final data frame will be uploaded as collection to Mongo.  
+
+### [Join Data Frames](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_join_dfs/cia_join_lang_relig.ipynb)
+
+* The final data frame is comprised of 3 data frames.
+
+* First, the [Languages data frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_join_dfs/cia_language.ipynb) and the [Religions data frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_join_dfs/cia_religion.ipynb) were cut from the CIA data frame.  
+
+* Both data frames show country information in conjunction with demographic information and   were uploaded Mongo in their separate forms.
+![Mongo join](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/mongo_join.png)
+
+* The Religion and Languages data frames were downloaded from Mongo and incorporated into a new notebook and were joined.  Next, the clean_terror_df was loaded into the notebook and manipulated to show the terror acts on a per country basis.   
+
+* The final data frame shows the demographic information alongside the terrorist acts per country.
+![final df](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/join%20df%20example.png)
+
 
 
 ### [New York Times (NYT) API](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_api/nyt_api_v_final.ipynb):
