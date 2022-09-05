@@ -5,10 +5,11 @@
 
 ### [Cleaning Terror Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/cleaning_terror_df.ipynb): 
 
-* First, I examined the CSV to ascertain the format of the data and formulate a gameplan for cleaning.  Next, I loaded the CSV into the notebook and continued examining the data.  Functions like ".head()"and ".dtypes" are useful to understand the structure.
-![head and dyptes](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/head%20and%20dytpes.png)
+* First, I examined the CSV to ascertain the format of the data and formulate a gameplan for cleaning.  Next, I loaded the CSV into the notebook and continued examining the data.  I used functions like ".head()"and ".dtypes" to understand the structure.
 
-* Using a loop to identify null values is also a helpful tactic to obtain information on the dataset.
+	![head and dyptes](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/head%20and%20dytpes.png)
+
+* Here, I used a loop to identify null values in the dataset.
 ![find nulls](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/find%20nulls.png)
 
 * Various transformations were conducted including:
@@ -28,21 +29,27 @@
 ![upsert to mongo](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/upsert%20to%20mongo.png)
 
 
-### [Cleaning CIA Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_v5.ipynb):
+### [Cleaning CIA Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia.ipynb):
 
-* Many of the examination steps noted above were repeated [here](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb). However, because this data set is considerably larger than the previous data set, I searched for columns likely to provide data to answer the questions posed in Segment 1.  This process reduced over 1100 columns to about 50 columns.
+* Many of the examination steps noted above were repeated [here](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb). 
 
-* Since I knew the pertinent columns,  I only loaded those columns into the notebook.
+* Since this data set is considerably larger than the previous data set, I began by searching the original data for columns likely the answers the questions posed in Segment 1.  
+
+* Once I ascertained the pertinent columns, I only loaded those columns into an [exploratory notebook](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb).
 ![column example]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/cia%20column%20names.png)
 
-* As a strategy, I loaded the data as “string” data type because I anticipated using slicing as a method to retain necessary data and remove unwanted data.
-![string]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/loaded%20as%20string.png)
+* Many columns contained multiple data points that needed to be moved into separate columns in order to work with that data.
 
-* Next, I used the [exploartory notebook](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/clean_cia_df_explore.ipynb) to determine how to slice the strings.
+	![orig pic]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/example%20of%20data%20gdp.png)
 
-* In order to balance multiple priorities, I focused on creating a “[rough draft](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/first_pass_clean_cia.csv)” data frame so my groupmates could access and begin to work with the data.
+* My initial strategy was to use slicing in Python to slice the data and move into separate columns.  However, this cause an issue with leading and trailing characters, similar to the trailing periods shown below.
+![lead and trail]( https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/lauren_resources_week_2/example%20of%20trailing.png)
 
-* The final data frame will be uploaded as collection to Mongo.  
+* This caused a change in strategies.  I exported the data as a CSV and used Excel’s “text to columns” feature to make slices in the data where needed.  Additionally, there were some non-conforming number formats, which I edited directly in Excel rather than using Python.  
+
+* Since the original data was not presented in a format where I could use a loop or function to repeat the same process and because there were only a handful of non-conforming formats,  working in Excel was more efficient than working in Python.
+
+* Once this process was complete, I loaded the final data into a notebook and uploaded it as a collection to Mongo.  
 
 ### [Join Data Frames](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_join_dfs/cia_join_lang_relig.ipynb)
 
