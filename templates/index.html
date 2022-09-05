@@ -9,6 +9,8 @@
      rel="stylesheet"
      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
    />
+   <!-- d3 JavaScript -->
+   <script src="https://d3js.org/d3.v5.min.js"></script>
    <!--  Load CSS in Flask with html-->
    <link rel="stylesheet" href='/static/main.css' />
 </head>
@@ -17,8 +19,29 @@
             <div class="jumbotron text-center">
                 <h1>Capstone Project</h1>
                 <p><a class="btn btn-primary btn-lg" href="/scrape"
-                            role="button">{{str}}</a></p>
+                            role="button">Update News</a></p>
             </div>
+            <p>Click to see charts on different pages</p>
+    
+            <h4><a href="/chart1">Top Terrorist Organizations from 1972 - 2022</a></h4>
+            <h4><a href="/chart2">Countries with the most Deaths and Injuries from Terrorism in 1972 - 2022</a></h4>
+            <h4><a href="/chart3">Most common categories of terrorism within each country from 1972-2022</a></h4>
+            <h4><a href="/chart4">Number of terrorist acts per decade between 1972 - 2022</a></h4>
+            <h4><a href="/chart5">Map of all terrorism acts from 1972-2022</a></h4>
+
+            <div id='chart' class='chart'”></div>
         </div>
+
+        <!-- Dataframe -->
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+
+        <!-- Scripts -->
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script type='text/javascript'>
+        var graphs = {{graphJSON | safe}};
+        Plotly.plot('chart',graphs,{});
+        </script>
     </body>
 </html>
