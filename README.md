@@ -77,7 +77,7 @@ The 2nd group meeting on 8/23 were as outlined:
 
 ## Database Management
 
-### [Cleaning Terror Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/cleaning_terror_df.ipynb): 
+### [Cleaning Terror Data Frame](https://github.com/namin1993/Capstone_Project/blob/Lauren_week_2/segment_2_data_clean/cleaning_terror_df.ipynb): 
 
 * First, I examined the CSV to ascertain the format of the data and formulate a gameplan for cleaning.  Next, I loaded the CSV into the notebook and continued examining the data.  I used functions like ".head()"and ".dtypes" to understand the structure.
 
