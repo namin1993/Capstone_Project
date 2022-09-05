@@ -107,9 +107,9 @@ Given the size of some of our graphs, our dashboard will provide links to each c
 
 The application design may change later on, however, depending on what the group agrees to for a better layout of information and/or a better way to create an application layout which does not slowdown the webpage's loading time.
 
-![Dashboard_Menu](https://github.com/namin1993/Capstone_Project/blob/Dashboard%20Images/Dashboard_1.png)
-![Dashboard_Map](https://github.com/namin1993/Capstone_Project/blob/Dashboard%20Images/Dashboard_2.png)
-![Dashboard_Graph](https://github.com/namin1993/Capstone_Project/blob/Dashboard%20Images/Dashboard_3.png)
+![Dashboard_Menu](Dashbaord Images/Dashboard_1.png)
+![Dashboard_Map](Dashboard Images/Dashboard_2.png)
+![Dashboard_Graph](Dashboard Images/Dashboard_3.png)
 
 ### Rough Draft of Slide Presentation:
 https://docs.google.com/presentation/d/1Fzlg9L7P3iCK86b989-ztdstdTh77HLjKwNlnZTFXi8/edit?usp=sharing
