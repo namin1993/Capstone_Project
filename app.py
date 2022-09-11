@@ -157,7 +157,7 @@ def chart4():
 
 # Question 5: World Map of all terrorist acts from 1972-2022
 @app.route('/chart5/')
-def chart6():
+def chart5():
     try:
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
@@ -214,7 +214,7 @@ def chart6():
 
 
 @app.route('/chart6/')
-def chart5():
+def chart6():
     try:
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
@@ -225,6 +225,14 @@ def chart5():
 
     except Exception as e:
         print(f'{e}')
+
+@app.route('/age-and-gender-map/')
+def age_and_gender_map():
+    try:
+        return render_template("demographic_map.html")
+    except Exception as e:
+        print(f'{e}')
+
 
 if __name__ == "__main__":
    app.run()
