@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terror Table</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+        />
+        <!--CSS stylesheet-->
+        <link rel="stylesheet" href="static/css/style.css">
+     
+</head>
+<body class = "bg-dark">
+    <div class ="wrapper">
+    <!--build the nav bar-->
+    <nav class = "navbar navbar-dark bg-dark-expand-lg">
+        <a class = "navbar-brand" href = "index.html"> UFO Sightings</a>  
+    </nav>
+    <div class = "jumbotron">
+        <h1 class = "display-2"> The Truth is Out There</h1>
+    </div>
+
+    <!--build the article section-->
+    <!-- <div class = "container-fluid">
+        <div class ="row"> 
+         <div class ="col-md-4">
+            <h3><b>UFO Sightings: Fact or Fancy?</b></h3><h3><small> Ufologists Weigh In</small></h3>    
+        </div>
+        <div class ="col-md-8">         
+            <p>
+            Dig through the data yourself, and let us know what you see.  Are we alone in the universe? For millennia, humans have turned to the sky to answer this question. 
+            Now, thanks to research generously funded by W. Avy, a UFO-enthusiast and amateur ufologist, we can supplement our sky-searching with data analysis.  
+            <br>
+            <br>
+            "The release of this analysis is well-timed: It coincides with the celebration of World UFO Day, which is a moment for ufologists around the world to connect, relax, 
+            and sample a range of UFO-themed snacks," said Dr. Ursula F. Olivier, the world's preeminent expert on circular sightings. "Citizen-scientists can be especially helpful 
+            in both cataloguing sightings—which is hugely helpful for us in our search for aliens—and in helping us celebrate the work that has already been done, such as this data 
+            visualization project, which will help us raise awareness of the ubiquity of sightings!"    
+            <br>
+            <br>
+            Not everyone is ready to celebrate, however. Local CEO and vocal anti-alien activist V. Isualize reached out to our reporters to go on record as firmly opposed to any attempts 
+            to provide access to this data. "If there are aliens, they certainly would like to be left alone," she stated, before directing us to the Leave Aliens Alone (LAA) 
+            community engagement initiative she founded and funds. So what do YOU think? Are we alone in the universe? Are aliens trying to contact us, or do they want to be 
+            left alone? Dig through the data yourself, and let us know what you see.
+            </p>
+    </div>             -->
+        <!--build the table-->
+        <div class = "container-fluid">
+            <div class = "row">
+                <style>
+                        label {
+                        display: inline-block;
+                        width: 150px;
+                        text-align: center;
+                    }
+                </style>
+                <div class = "col-md-3">
+                    <form>
+                    <p>Filter Search</p>
+                        <ul>
+                            <li>
+                                <label for ="Year">Enter Year between 2016 - 2022</label>
+                                <input type = "text" id ="Year" placehoder ="2020"/>      
+                            </li>  
+                            <br>
+                                <li>                 
+                                    <button id="filter-btn" type="button" class="btn btn-default">
+                                        Filter Table
+                                    </button>
+                            </li>
+                            </ul>
+                    </form>
+                    </div>
+                    <div class = "col-md-9">
+                        <table class = "table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class = "table-head"> Year </th>                            
+                                    <th class = "table-head"> Category </th>                              
+                                    <th class = "table-head"> Country </th>                                                                       
+                                    <th class = "table-head"> Perpetrator</th>
+                                    <th class = "table-head"> Injured </th>
+                                    <th class = "table-head"> Dead</th>  
+                                    <th class = "table-head"> Description </th>
+                                </tr>
+                            </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+<!--11.6.2 add script tag to connect to the other files, order is important-->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="static/js/data_terror.js"></script>
+<script src="static/js/app.js"></script>    
+<footer></footer>
+</body>
+</html>
