@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <title>Capstone Project</title>
+   <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous
+   />
+
+   <!-- d3 JavaScript -->
+   <script src="https://d3js.org/d3.v5.min.js"></script>
+
+   <!--  Load CSS in Flask with html-->
+   <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+    <body>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1></h1>
+               
+            </div>
+            <p>Click here to see charts on different pages</p>
+    
+            <h4><a href="/chart1">Top Terrorist Organizations from 1972 - 2022</a></h4>
+            <h4><a href="/chart2">Countries with the most Deaths and Injuries from Terrorism in 1972 - 2022</a></h4>
+            <h4><a href="/chart3">Most common categories of terrorism within each country from 1972-2022</a></h4>
+            <h4><a href="/chart4">Number of terrorist acts per decade between 1972 - 2022</a></h4>
+            <h4><a href="/chart5">Map of all terrorism acts from 1972-2022</a></h4>
+
+            <div id='chart' class='chart'”></div>
+        </div>
+
+        <!-- Dataframe -->
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+
+        <!-- Scripts -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="static/js/data_terror.js"></script>
+        <script src="static/js/app.js"></script> 
+        </script>
+    </body>
+</html>

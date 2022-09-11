@@ -1,0 +1,30 @@
+
+body {
+    color: #e5e5e5;
+    font-family: 'Franklin Gothic Medium';
+    background: url(../images/final_web_background.png);
+    
+}
+
+  .jumbotron {
+    background-image: url("../images/heading.png");
+    background-size: 100% 100%;
+    text-align: center;
+  }
+​
+  ul {
+    list-style: none;
+  }
+​
+p {
+    
+    padding: 20px 20px 20px 20px;
+}
+​
+button{
+  padding: 5px 5px 5px 5px;
+}
+​
+  footer {
+    padding: 75px 75px 75px 75px;
+  }
