@@ -1,7 +1,9 @@
 
 body {
-    background-color: #f0e6ef;
+    
     font-family: 'Franklin Gothic Medium';
+    background-image: url("../images/final_web_background.png");
+    opacity: 0.3;
     
     
 }
