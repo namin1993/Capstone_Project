@@ -27,5 +27,6 @@ Examples are pictured below.
 
 * The [HTML](https://github.com/namin1993/Capstone_Project/blob/sement_3_lauren/segment_3_load_terror_table/index.html) from Module 11 was similarly repurposed.  Another teammate is creating the skeleton of the dashboard, so I only changed HTML code where it concerns the new table so that she can copy it and paste it into the completed skeleton.
 
-Example of the updated HTML code.
+Examples of the updated HTML code are pictured below.  The Module 11 code is on the left and the new code on the right.
 ![HTML](https://github.com/namin1993/Capstone_Project/blob/sement_3_lauren/lauren_resources_segment_3/script.png)
+![HTML headers](https://github.com/namin1993/Capstone_Project/blob/sement_3_lauren/lauren_resources_segment_3/headers.png)
