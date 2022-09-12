@@ -29,7 +29,7 @@ The reason this topic was selected was because it would enable us to work with l
 * Accuracy score:
 	The PCA Variance Ratio is array([0.02212923, 0.01560112, 0.01320126]).  Very low relationship between variables and clustering organization.
 
-![Machine Learning Code]()
+![Machine Learning Code](https://github.com/namin1993/Capstone_Project/blob/7d0fbf01431cebec3116a9605fb66d21f0f03bd5/Dashbaord%20Images/Machine_Learning_Graph.png)
 
 ## Database Management:
 
