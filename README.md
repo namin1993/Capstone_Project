@@ -9,6 +9,27 @@ The reason this topic was selected was because it would enable us to work with l
 # Segment 3
 
 ## Machine Learning:
+* Machine Learning Model choice:
+    * An unsupervised machine learning model, agglomerative hierarchical clustering, is selected for grouping together clusters of terrorist attacks. We chose this machine-learning model in order to identify which attacks appeared to be similar to one another in outcome. This model will rely upon different columns of information merged from the "CIA-Countries" dataset and "Terrorist" dataset 
+
+* Preliminary data preprocessing:
+    * Dataframes from several datasets will be pre-processed by dropping non-beneficial columns, splitting the 'COORDINATES' column into 'longitude' and 'latitude', creating dummies for certain features, and checking for any values for binning.
+
+    Features will be then be split between 2 dataframes, one for information that will remain categorical and one which will be filled with integers for PCA analysis.
+
+* Preliminary feature engineering and preliminary feature selection, including their decision-making process
+    * Although we are not making any predictions from our machine learning model, it would be possible to calculate the average amount of time passed between  each terrorist within a given country/region from 1972-2022. Our model will heavily depend on feature selection, which will rely mainly on intuition and PCA analysis for further feature reduction.
+
+* Is data split into training and testing sets?
+    * Data does not need to be split between training and testing sets under the agglomerative hierarchical clustering model. We cannot make predictions about the next terrorist attack or categorize each terrorist attack or country in any way from the datasets. 
+    
+* Changes to machine learning model:
+    * We will merge terrorism data with age, gender, and/or GDP (PPP) columns for more data for hierarchical analysis.
+
+* Accuracy score:
+	The PCA Variance Ratio is array([0.02212923, 0.01560112, 0.01320126]).  Very low relationship between variables and clustering organization.
+
+![Machine Learning Code]()
 
 ## Database Management:
 
