@@ -1,94 +1,70 @@
 # Webscraping
 # Import Dependencies
-from splinter import Browser
-from bs4 import BeautifulSoup as soup
+import requests
+from config import api_key
+import time
+import json
 import pandas as pd
-from webdriver_manager.chrome import ChromeDriverManager
-import datetime as dt
+from luqum.parser import parser 
 
 # Initiate scrape_all() to receive data
 def scrape_all():
-    # Initiate headless driver for deployment
-    executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=True)
-
-    # Possible arrangement of scraping function (easily flexible)
-    news_title, news_paragraph = world_news(browser)
-
-    # Run all scraping functions and store results in a dictionary
-    data = {
-        "news_title": news_title,
-        "news_paragraph": news_paragraph,
-        "featured_image": featured_image(browser),
-        "facts": news_facts(),
-        "last_modified": dt.datetime.now(),
-    }
-
-    # Stop webdriver and return data
-    browser.quit()
-    return data
-
-def world_news(browser):
-
-    # Visit the mars nasa news site
-    url = ''
-    browser.visit(url)
-
-    # Optional delay for loading the page
-    browser.is_element_present_by_css('div.list_text', wait_time=1)
-
-    html = browser.html
-    news_soup = soup(html, 'html.parser')
-
     try:
+        # Set variables for query
+        #replace the query variable with the parser ('(title:"foo bar" AND body:"quick fox") OR title:fox')
+        desk = parser.parse('(news_desk:"Foreign" "World" "Business" "Financial" "Politics" "Travel" "U.S." AND source: "The New York Times")')
+        query = "terror* OR bomb"
 
-        # Webscrape code for news titles and articles. Could be a list of both
-    
-    except AttributeError:
-        return None, None
+        #save url
+        url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
 
-    return news_title, news_paragraph
+        #set search dates
+        begin_date = "20170101"
+        # make end_date a parameter
+        end_date = "20221231"
 
-# Scrape an image by clicking clicking on <button> on the website
-def featured_image(browser):
+        # Build query URL & sorted query to newest
+        query_url = f"{url}api-key={api_key}&q={query}&fq={desk}&sort=newest&begin_date={begin_date}&end_date={end_date}"
 
-    # Visit URL
-    url = ''
-    browser.visit(url)
+        # Empty list for articles
+        articles_list = []
 
-    # Find and click the full image button
-    full_image_elem = browser.find_by_tag('button')[1]
-    full_image_elem.click()
+        # loop through pages, 10 results per page
+        for page in range(0, 2):
+            # create query with page number
+            query_url = f"{query_url}&page={str(page)}"
+            articles = requests.get(query_url).json()
+            
+            # Add a one second interval between queries to stay within API query limits
+            time.sleep(1)
+            # loop through the response and append each article to the list
+            for article in articles["response"]["docs"]:
+                articles_list.append(article)
 
-    # Parse the resulting html with soup
-    html = browser.html
-    img_soup = soup(html, 'html.parser')
+        # Create loop to collect dictionary objects with certain information from api call to JSON file to store in a list
+        article_data_list = []
 
-    try:
-        # Find the relative image url
-        # Webscrape code for images. Possibly replace button with select 
-        img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
+        for article in articles_list:
+            
+            abstract = article["abstract"]
+            headline = article["headline"]["main"]
+            lead_paragraph = article["lead_paragraph"]
+            snippet = article["snippet"]
+            article_link = article["web_url"]
+            section_name = article["section_name"]
+            pub_date = article["pub_date"]
+            
+            
+            article_data_list.append({"Headline": headline,
+                            "Abstract" : abstract,
+                            "Lead Paragraph" : lead_paragraph,
+                            "Snippet" : snippet, 
+                            "URL" : article_link, 
+                            "Date" : pub_date, 
+                            "Section" : section_name})
 
-    except AttributeError:
-        return None
+        ## get images somehow
+        return article_data_list
 
-    # Use the base URL to create an absolute URL
-    img_url = f'https://spaceimages-mars.com/{img_url_rel}' #replace url here
-
-    return img_url
-
-# Scrape a dataframe in html format from a website
-def news_facts():
-    try:
-        # Using Pandas Dataframe to scrape a table from a website
-        # The Pandas function read_html() specifically searches for and returns a list of tables found in the HTML. May need to click and search on webpages.
-        df = pd.read_html('')[0]
-    
     except BaseException:
         return None
-
-    df.columns=['Description', 'Mars', 'Earth'] # Replace name of columns in the table
-    df.set_index('Description', inplace=True)
-
-    # Convert dataframe into HTML format, add bootstrap
-    return df.to_html()

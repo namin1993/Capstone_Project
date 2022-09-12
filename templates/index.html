@@ -21,14 +21,35 @@
                 <p><a class="btn btn-primary btn-lg" href="/scrape"
                             role="button">Update News</a></p>
             </div>
+
+            <!-- Section for News Articles -->
+            <div class="row" id="news-feed">
+                <div class="page-header">
+                <h2 class="text-center">News Feed</h2>
+                </div>
+                {% for article in articles %}
+                <div class="col-sm-6 col-md-4">
+                    <a href={{ article.URL }}>
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h5>{{ article.Headline }}</h5>
+                                <br>
+                                <p> {{ article.Abstract }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
             <p>Click to see charts on different pages</p>
-    
             <h4><a href="/chart1">Top Terrorist Organizations from 1972 - 2022</a></h4>
             <h4><a href="/chart2">Countries with the most Deaths and Injuries from Terrorism in 1972 - 2022</a></h4>
             <h4><a href="/chart3">Most common categories of terrorism within each country from 1972-2022</a></h4>
             <h4><a href="/chart4">Number of terrorist acts per decade between 1972 - 2022</a></h4>
             <h4><a href="/chart5">Map of all terrorism acts from 1972-2022</a></h4>
             <h4><a href="/age-and-gender-map">Map Gender and Age Demographics of countries where Terrorism took place (2022 data)</a></h4>
+            <h4><a href="/machine-learning">Machine Learning Analysis of Terrorist Acts</a></h4>
 
             <div id='chart' class='chart'”></div>
         </div>

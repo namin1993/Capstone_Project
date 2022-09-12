@@ -6,20 +6,18 @@ import json
 import hvplot.pandas
 import plotly
 import plotly.express as px
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder, MinMaxScaler
-from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans
-import tensorflow as tf
 import datetime as dt
-#import scraping
 import db_connections
+import scraping
+import ml_model
 
 app = Flask(__name__)
 # Shows you what was scraped
 @app.route("/")
 def index():
-    return render_template("index.html")
+    # Find collections
+    news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+    return render_template("index.html", articles=news)
 
     #return render_template("index.html", str="Update News")
 # Scrape updates in the database
@@ -213,18 +211,16 @@ def chart5():
         print(f'{e}')
 
 
-@app.route('/chart6/')
-def chart6():
+@app.route('/machine-learning')
+def ml_code():
     try:
-        # Read terrorism dataframe
-        terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
-        terrorism_df.drop(['_id'], axis=1, inplace=True)
-
+        fig = ml_model.agglomerativeClustering()
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return render_template("index.html", graphJSON=graphJSON)
 
     except Exception as e:
         print(f'{e}')
+
 
 @app.route('/age-and-gender-map/')
 def age_and_gender_map():
@@ -233,6 +229,14 @@ def age_and_gender_map():
     except Exception as e:
         print(f'{e}')
 
+@app.route("/scrape")
+def scrape():
+    news = db_connections.news
+    news_data = scraping.scrape_all()[:4]
+    # update collections table of 20 rows
+    for i in news_data:
+        news.update_one({}, {"$set":i}, upsert=True)
+    return redirect('/', code=302)
 
 if __name__ == "__main__":
    app.run()
