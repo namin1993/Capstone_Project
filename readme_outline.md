@@ -1,5 +1,8 @@
 # Capstone project
 
+[Google Slides](https://docs.google.com/presentation/d/1Dv4_oMvHP1tcqSeELV1P3IkvWU_IuylzWD8664CBSYo/edit?usp=sharing)
+** add link to deployed dashboard **
+
 ## Purpose and Overview:
 
 The purpose of this analysis is to explore whether there is a connection between country demographics, economic status, and military expenditures with terrorism in the last century. The completed analysis will be located on GitHub Pages and will contain interactive visualizations of the data including a map and web-scraped articles.
@@ -8,7 +11,7 @@ The reason this topic was selected was because it would enable us to work with l
 
 ## Segment 1:
 
-* Selected 2 datasets on Kaggle that focus on terrorism.  The goal of this project is to determine the correalation between country demographics and terroristic activity.  
+* Selected 2 datasets on Kaggle that focus on terrorism. 
 
 * Machine Learning: 
 * Database Managment:
