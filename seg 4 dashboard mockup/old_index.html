@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+        />
+        <!--CSS stylesheet-->
+        <link rel="stylesheet" href="static/css/style.css">
+<style>
+   body{
+    background-image: url("static/css/images/final_web_background.png");
+   } 
+   jumbotron{
+    background-image: url("static/css/images/jumbotron.png");
+   }
+</style>   
+</head>
+<body class = ></body>
+    <!-- <div class ="wrapper"> -->
+    <!--!build the nav bar>-->
+    <nav class = "navbar navbar-dark bg-dark-expand-lg">
+        <a class = "navbar-brand" href = "index.html"> Demographics and Terrorism </a>  
+    </nav>
+    <div class = "jumbotron">
+        <h1 class = "display-2"> Demographics and Terrorism</h1>
+    </div> 
+    <div class="row">
+        <div class="col-md-5">
+    <div class = "panel panel-primary">
+      <div class = "panel-heading">
+        <h3 class = "panel-title"> GDP Comparison Metrics</h3>
+        <!-- <img src = "static/css/images/metrics gdp.png">  -->
+        <div id = "test-chart" class = "panel-body"></div>
+        <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="charts/test.html" height="500" width="100%"></iframe>'
+      </div>
+      <div id = "sample-metadata" class ="panel-body"></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="bar"></div>
+    <h3 style="text-align: center;">2020 GDP Comparison</h3>
+    <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="charts/GDPAllCountries.html" height="500" width="100%"></iframe>'
+  </div>
+  <div class="col-md-6">
+    <div id="barchartGDPAll"></div>
+    <h3 style="text-align: left;">Recent Current Account Balance by Country</h3>
+    <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="charts/GDPCurrentAccount.html" height="500" width="100%"></iframe>'
+</div>
+    <div class="col-md-6">
+        <div id="CountryMetrics"></div>
+        <h3 style="text-align: left;">Recent Current Account Balance by Country</h3>
+        <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="charts/Metrics2.html" height="500" width="100%"></iframe>' 
+    </div>
+    <br>
+    <br>
+    <div></div>
+  </div>
+  <!-- <div class="row">
+  <div class="col-md-12">
+    <div id="bubble"></div>
+    <p style="text-align: center;"></p>
+    <img scr = "testchart.png">
+  </div> -->
+        </div>
+        <!--build the table-->
+        <div class = "container-fluid">
+            <div class = "row">
+                <style>
+                        label {
+                        display: inline-block;
+                        width: 150px;
+                        text-align: center;
+                    }
+                </style>
+                <div class = "col-md-3">
+                    <form>
+                    <p>Filter Search</p>
+                        <ul>
+                            <li>
+                                <label for ="Year">Enter Year between 2016 - 2022</label>
+                                <input type = "text" id ="Year" placehoder ="2020"/>      
+                            </li>  
+                            <br>
+                                <li>                 
+                                    <button id="filter-btn" type="button" class="btn btn-default">
+                                        Filter Table
+                                    </button>
+                            </li>
+                            </ul>
+                    </form>
+                    </div>
+                    <div class = "col-md-9">
+                        <table class = "table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class = "table-head"> Year </th>                            
+                                    <th class = "table-head"> Category </th>                              
+                                    <th class = "table-head"> Country </th>                                                                       
+                                    <th class = "table-head"> Perpetrator</th>
+                                    <th class = "table-head"> Injured </th>
+                                    <th class = "table-head"> Dead</th>  
+                                    <th class = "table-head"> Description </th>
+                                </tr>
+                            </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+<!--11.6.2 add script tag to connect to the other files, order is important-->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="static/js/data_terror.js"></script>
+<script src="static/js/app.js"></script>    
+<footer></footer>
+</body>
+</html>
