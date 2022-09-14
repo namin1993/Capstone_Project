@@ -1,0 +1,32 @@
+body {
+
+    color: #dbd0d0;
+    font-family: 'Century Gothic';
+    background-image: url("static/css/images/final_web_background.png");
+    background-color: #cccccc;
+  }
+  
+  
+
+.jumbotron {
+   
+    background-size: 100% 100%;
+    text-align: center;
+    background-image: url("static/css/images/jumbotron.png")
+  }
+
+  ul {
+    list-style: none;
+  }
+
+p {
+    padding: 20px 20px 20px 20px;
+}
+
+button{
+  padding: 5px 5px 5px 5px;
+}
+
+  footer {
+    padding: 75px 75px 75px 75px;
+  }
