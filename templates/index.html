@@ -4,22 +4,22 @@
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   <title>Mission to Mars</title>
+   <title>Terrorism Capstone Project</title>
    <link
-     rel="stylesheet"
-     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-   />
+   rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
    <!-- d3 JavaScript -->
    <script src="https://d3js.org/d3.v5.min.js"></script>
    <!--  Load CSS in Flask with html-->
-   <link rel="stylesheet" href='/static/main.css' />
+   <link rel="stylesheet" href='../static/css/main.css' />
 </head>
-    <body>
+    <body bgcolor="#45587d">
         <div class="container">
             <div class="jumbotron text-center">
-                <h1>Capstone Project</h1>
+                <h1>Terrorism Analysis from 1972 - 2022</h1>
                 <p><a class="btn btn-primary btn-lg" href="/scrape"
-                            role="button">Update News</a></p>
+                            role="button">Update News Feed</a></p>
             </div>
 
             <!-- Section for News Articles -->
@@ -27,31 +27,41 @@
                 <div class="page-header">
                 <h2 class="text-center">News Feed</h2>
                 </div>
+            </div>
+
+            <div class="row card-deck" id="news-articles">
                 {% for article in articles %}
-                <div class="col-sm-6 col-md-4">
-                    <a href={{ article.URL }}>
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h5>{{ article.Headline }}</h5>
-                                <br>
-                                <p> {{ article.Abstract }}</p>
-                            </div>
-                        </div>
-                    </a>
+                <div class="card col-sm-6 col-md-3 border-dark mb-3">
+                    <div class="card-body">
+                        <a href={{ article.URL }}>
+                            <h5 class="card-title">{{ article.Headline }}</h5>
+                            <br>
+                            <p class="card-text"> {{ article.Abstract }}</p>      
+                        </a>
+                    </div> 
                 </div>
                 {% endfor %}
             </div>
 
-            <p>Click to see charts on different pages</p>
-            <h4><a href="/chart1">Top Terrorist Organizations from 1972 - 2022</a></h4>
-            <h4><a href="/chart2">Countries with the most Deaths and Injuries from Terrorism in 1972 - 2022</a></h4>
-            <h4><a href="/chart3">Most common categories of terrorism within each country from 1972-2022</a></h4>
-            <h4><a href="/chart4">Number of terrorist acts per decade between 1972 - 2022</a></h4>
-            <h4><a href="/chart5">Map of all terrorism acts from 1972-2022</a></h4>
-            <h4><a href="/age-and-gender-map">Map Gender and Age Demographics of countries where Terrorism took place (2022 data)</a></h4>
-            <h4><a href="/machine-learning">Machine Learning Analysis of Terrorist Acts</a></h4>
+            <div class="row" id="navigation">
+                <h2>Click to see charts on certain data</h2>
+                <div><img src="../static/img/h-bar.png" alt=""><h4><a href="/chart1">Top Terrorist Organizations from 1972 - 2022</a></h4></div>
+                <br>
+                <div><img src="../static/img/h-bar.png" alt=""><h4><a href="/chart2">Countries with the most Deaths and Injuries from Terrorism in 1972 - 2022</a></h4></div>
+                <br>
+                <div><img src="../static/img/v-bar.png" alt=""><h4><a href="/chart3">Most common categories of terrorism within each country from 1972-2022</a></h4></div>
+                <br>
+                <div><img src="../static/img/v-bar.png" alt=""><h4><a href="/chart4">Number of terrorist acts per decade between 1972 - 2022</a></h4></div>
+                <br>
+                <div><img src="../static/img/globe.png" alt=""><h4><a href="/chart5">Map of all terrorism acts from 1972-2022</a></h4></div>
+                <br>
+                <div><img src="../static/img/globe.png" alt=""><h4><a href="/age-and-gender-map">Map Gender and Age Demographics of countries where Terrorism took place (2022 data)</a></h4></div>
+                <br>
+                <div><img src="../static/img/h-bar.png" alt=""><h4><a href="/machine-learning">Machine Learning Analysis of Terrorist Acts</a></h4></div>    
+            </div>
 
             <div id='chart' class='chart'”></div>
+
         </div>
 
         <!-- Dataframe -->
@@ -59,6 +69,7 @@
             {{ table|safe }}
         {% endfor %}
 
+        <footer></footer>
         <!-- Scripts -->
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script type='text/javascript'>

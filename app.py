@@ -17,22 +17,18 @@ app = Flask(__name__)
 def index():
     # Find collections
     news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+    news = news[:4]
     return render_template("index.html", articles=news)
-
-    #return render_template("index.html", str="Update News")
-# Scrape updates in the database
-# @app.route("/scrape")
-# def scrape():
-#    mars = mongo.db.mars
-#    mars_data = scraping.scrape_all()
-#    mars.update_one({}, {"$set":mars_data}, upsert=True)
-#    return redirect('/', code=302)
 
 # Question 1: Which organizations are responsible for the most deaths and injuries from 1972-2022?
 @app.route('/chart1/')
 def chart1():
     try:
         print("The mongodb connection worked!!")
+
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
 
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
@@ -57,7 +53,7 @@ def chart1():
                     height=800)
 
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("index.html", graphJSON=graphJSON)
+        return render_template("index.html", graphJSON=graphJSON, articles=news)
 
     except Exception as e:
         print(f'{e}')
@@ -66,6 +62,10 @@ def chart1():
 @app.route('/chart2/')
 def chart2():
     try:
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
+
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
         terrorism_df.drop(['_id'], axis=1, inplace=True)
@@ -91,7 +91,7 @@ def chart2():
             height=3400)
 
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("index.html", graphJSON=graphJSON)
+        return render_template("index.html", graphJSON=graphJSON, articles=news)
 
     except Exception as e:
         print(f'{e}')
@@ -100,12 +100,16 @@ def chart2():
 @app.route('/chart3/')
 def chart3():
     try:
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
+
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
         terrorism_df.drop(['_id'], axis=1, inplace=True)
         q_3df = terrorism_df.groupby(['COUNTRY', 'CATEGORY'])[['CATEGORY']].count()
 
-        return render_template("index.html", tables=[q_3df.to_html(classes='data', header="true")])
+        return render_template("index.html", tables=[q_3df.to_html(classes='data', header="true")], articles=news)
 
     except Exception as e:
         print(f'{e}')
@@ -114,6 +118,10 @@ def chart3():
 @app.route('/chart4/')
 def chart4():
     try:
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
+
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
         terrorism_df.drop(['_id'], axis=1, inplace=True)
@@ -148,7 +156,7 @@ def chart4():
         )
 
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("index.html", graphJSON=graphJSON)
+        return render_template("index.html", graphJSON=graphJSON, articles=news)
 
     except Exception as e:
         print(f'{e}')
@@ -157,6 +165,10 @@ def chart4():
 @app.route('/chart5/')
 def chart5():
     try:
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
+
         # Read terrorism dataframe
         terrorism_df = pd.DataFrame(list(db_connections.terrorism.find()))
         terrorism_df.drop(['_id'], axis=1, inplace=True)
@@ -205,23 +217,27 @@ def chart5():
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("index.html", graphJSON=graphJSON)
+        return render_template("index.html", graphJSON=graphJSON, articles=news)
 
     except Exception as e:
         print(f'{e}')
 
-
+# Machine Learning
 @app.route('/machine-learning')
 def ml_code():
     try:
+        # Find collections
+        news = db_connections.mogodb_client.Final_Project.nyt_api.find()
+        news = news[:4]
+
         fig = ml_model.agglomerativeClustering()
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("index.html", graphJSON=graphJSON)
+        return render_template("index.html", graphJSON=graphJSON, articles=news)
 
     except Exception as e:
         print(f'{e}')
 
-
+# Age and Gender map
 @app.route('/age-and-gender-map/')
 def age_and_gender_map():
     try:
@@ -229,15 +245,16 @@ def age_and_gender_map():
     except Exception as e:
         print(f'{e}')
 
+# Api call
 @app.route("/scrape")
 def scrape():
     news = db_connections.news
-    news_data = scraping.scrape_all()[:4]
+    news_data = scraping.scrape_all()
     # update collections table of 20 rows
     for i in news_data:
         news.update_one({}, {"$set":i}, upsert=True)
     return redirect('/', code=302)
 
 if __name__ == "__main__":
-   app.run()
+   app.run(host='localhost', port=5000)
 
