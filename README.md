@@ -174,3 +174,12 @@ The application design may change later on, however, depending on what the group
 https://docs.google.com/presentation/d/1Fzlg9L7P3iCK86b989-ztdstdTh77HLjKwNlnZTFXi8/edit?usp=sharing
 
 
+# Segment 4
+
+## Project Outline
+
+## Project Challenges
+
+## Project Links 
+
+
