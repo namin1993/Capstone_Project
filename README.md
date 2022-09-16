@@ -117,19 +117,19 @@ Questions answered in this dashboard:
 ## Dashboard Images
 
 ### Top of Dashboard
-![Top of Dashboard]()
+![Top of Dashboard](https://github.com/namin1993/Capstone_Project/blob/afd5b0e18b266e5a4f2b04291fcd0181d68e4fc1/Dashboard_Images/Top_of_dashboard.png)
 
 ### Bottom of Dashboard
-![Bottom of Dashboard]()
+![Bottom of Dashboard](https://github.com/namin1993/Capstone_Project/blob/afd5b0e18b266e5a4f2b04291fcd0181d68e4fc1/Dashboard_Images/Bottom_of_Dashboard.png)
 
 ### Bar Graph
-![Bar Graph]()
+![Bar Graph](https://github.com/namin1993/Capstone_Project/blob/afd5b0e18b266e5a4f2b04291fcd0181d68e4fc1/Dashboard_Images/Total_number_dead_injured.png)
 
 ### Plotly Map
-![Plotly Map]()
+![Plotly Map](https://github.com/namin1993/Capstone_Project/blob/afd5b0e18b266e5a4f2b04291fcd0181d68e4fc1/Dashboard_Images/Plotly_Map.png)
 
 ### GeoJSON Map
-![GeoJSON Map]()
+![GeoJSON Map](https://github.com/namin1993/Capstone_Project/blob/afd5b0e18b266e5a4f2b04291fcd0181d68e4fc1/Dashboard_Images/GeoJSON_Map.png)
 
 ## Project Links
 
