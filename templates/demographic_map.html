@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Leaflet-Basic-Map</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+  <style type="text/css">
+    .leaflet-container{background-color:#c5e8ff;}
+  </style>
+
+  <!-- d3 JavaScript -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+
+<body style="height: 2400px;">
+
+  <div id="mapid" style="position: relative;height: 100%;"></div>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+
+<script>
+    var myGeoJSONPath = '../static/json/customgeo.json';
+    var demodata = "../static/json/myfiletwo.json";
+
+    var myCustomStyle = {
+        stroke: false,
+        fill: true,
+        fillColor: '#fff',
+        fillOpacity: 1
+    }
+    $.getJSON(myGeoJSONPath, function(custom_geo_json_data){
+        // Define Variables
+        var map = L.map('mapid').setView([39.74739, -105], 4);
+        var feature_array = custom_geo_json_data.features;
+
+        // Add Map
+        L.geoJson(custom_geo_json_data, {
+                clickable: false,
+                style: myCustomStyle
+            }).addTo(map);
+
+        // Define function to filter geojson data by the name of the country so that data can be appended to the properties
+        function getCountryByNameFromGeoJson(name) {
+          return feature_array.filter(
+            function(data) {
+              return data.properties.name === name;
+            }
+          )[0];
+        }
+        
+        // Iterate json country, match json country to geojson country, append objects to geojson properties, create a loop
+        $.getJSON(demodata, function(demo_data) {
+          var latitude_dictionary = demo_data.latitude;
+          var country_name_keys = Object.keys(latitude_dictionary);
+
+          // Find match of key in myfiletwo.json to value in geojson.feature.properties.name. Make if conditional statement
+          for (i=0; i < country_name_keys.length; i++){
+            let country_name = country_name_keys[i];
+            let geo_country_feature_collection = getCountryByNameFromGeoJson(country_name);
+
+            // append myfile. to geojson.feature.properties
+            // Define values for age and gender
+            var ps_age_1 = demo_data["People and Society: Age structure - 15-24 years"][country_name];
+            var ps_age_2 = demo_data["People and Society: Age structure - 25-54 years"][country_name];
+            var ps_age_3 = demo_data["People and Society: Age structure - 55-64 years"][country_name];
+            var ps_gender_1 = demo_data["People and Society: Sex ratio - 15-24 years"][country_name];
+            var ps_gender_2 = demo_data["People and Society: Sex ratio - 25-54 years"][country_name];
+            var ps_gender_3 = demo_data["People and Society: Sex ratio - 55-64 years"][country_name];
+            var latitude_for_country_name = demo_data["latitude"][country_name];
+            var longitude_for_country_name = demo_data["longitude"][country_name];
+
+            // append values to geo_country_data[i].properties[ps_age_1].
+            geo_country_feature_collection["properties"]["ps_age_1"] = ps_age_1;
+            geo_country_feature_collection["properties"]["ps_age_2"] = ps_age_2;
+            geo_country_feature_collection["properties"]["ps_age_3"] = ps_age_3;
+            geo_country_feature_collection["properties"]["ps_gender_1"] = ps_gender_1;
+            geo_country_feature_collection["properties"]["ps_gender_2"] = ps_gender_2;
+            geo_country_feature_collection["properties"]["ps_gender_3"] = ps_gender_3;
+
+
+            // Add markers on the map
+            L.marker([latitude_for_country_name, longitude_for_country_name]).addTo(map)
+              .bindPopup(`Country: ${country_name} <br>Percentage of Population of Ages 15-24 years: ${ps_age_1}
+              <br>Percentage of Population of Ages 25-54 years: ${ps_age_2}
+              <br>Percentage of Population of Ages 55-64 years: ${ps_age_3}
+              <br>
+              <br>Gender ratio - 15-24 years: ${ps_gender_1}
+              <br>Gender ratio - 25-54 years: ${ps_gender_2}
+              <br>Gender ratio - 55-64 years: ${ps_gender_3}`)
+          } // end for loop
+        });// end of $.getJSON demodata
+    }) // end of $.getJSON mygeoJSONPath
+</script>
+
+</body>
+</html>
